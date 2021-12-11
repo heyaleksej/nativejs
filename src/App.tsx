@@ -1,26 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Accordion from "./components/accordion/Accordion";
+import OnOff from './components/OnOff/OnOff';
+import {Rating, RatingValueType} from "./components/Ratings/Ratings";
+import UncontrolledAccordion from "./components/SelfControlledAccordion/UncontrolledAccordion";
+import {UncontrolledRatings} from "./components/Ratings/UncontrolledRatings";
+import UncontrolledOnOff from "./components/OnOff/UncontrolledOnOff";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+function App(props: any) {
+
+    let [ratingValue, setRatingValue] =useState<RatingValueType>(0)
+    let [accordionCollapsed, setAccordionCollapsed] = useState(false)
+    let [on,setOn] = useState(false);
+
+
+
+    return(
+        <div className={'App'}>
+            {/*<PageTitle title={"Home page"}/>*/}
+            {/*<PageTitle title={"My friends"}/>*/}
+            {/*article1*/}
+            {/*<Rating value={3}/>*/}
+            <OnOff on={on} setOn={setOn}/> {setOn.toString()}
+            <UncontrolledOnOff />
+            {/*<OnOff />*/}
+            {/*<OnOff />*/}
+            {/*<OnOff />*/}
+            {/*<OnOff on={false}/>*/}
+            {/*<OnOff on={true}/>*/}
+            {/*<Accordion titleValue={"Menu"} collapsed={accordionCollapsed} setCollapsed={setAccordionCollapsed}/>*/}
+            <Accordion titleValue={"Users"} collapsed={accordionCollapsed} setCollapsed={setAccordionCollapsed}/>
+            {/*<UncontrolledAccordion  titleValue={"Menu"}  />*/}
+            {/*<UncontrolledAccordion  titleValue={"Users"} />*/}
+
+            {/*<Rating value={1}/>*/}
+            <Rating value={ratingValue} onClick={setRatingValue}/>
+            {/*<UncontrolledRatings/>*/}
+            {/*<Rating value={3}/>*/}
+            {/*<Rating value={4}/>*/}
+            {/*<Rating value={5}/>*/}
+        </div>
+    );
 }
+
+type PageTitlePropsType ={
+    title: string
+}
+
+function PageTitle(props: PageTitlePropsType) {
+        console.log("title rendering")
+        return <h1>{ props.title }</h1>
+    }
+
 
 export default App;
