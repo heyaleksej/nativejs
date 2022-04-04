@@ -12,7 +12,7 @@ function App(props: any) {
 
     let [ratingValue, setRatingValue] =useState<RatingValueType>(0)
     let [accordionCollapsed, setAccordionCollapsed] = useState(false)
-    let [on,setOn] = useState(false);
+    let [on,setOn] = useState<boolean>(false);
 
 
 
@@ -22,8 +22,10 @@ function App(props: any) {
             {/*<PageTitle title={"My friends"}/>*/}
             {/*article1*/}
             {/*<Rating value={3}/>*/}
-            <OnOff on={on} setOn={setOn}/> {setOn.toString()}
+            <OnOff on={on} setOn={setOn}/>
             <UncontrolledOnOff />
+            {on.toString()}
+
             {/*<OnOff />*/}
             {/*<OnOff />*/}
             {/*<OnOff />*/}
