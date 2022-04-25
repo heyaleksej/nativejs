@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 
-
+// type PropsType={
+//     onChange:(on: boolean)=>void
+// }
 
 
 function UncontrolledOnOff() {

@@ -28,7 +28,7 @@ type StarPropsType ={
 }
 
 
-function Star(props: StarPropsType) {
+export function Star(props: StarPropsType) {
     console.log("star rendering")
 
     // return props.selected ? <span><b>star </b></span> : <span>star </span>
